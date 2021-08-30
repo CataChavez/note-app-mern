@@ -1,15 +1,13 @@
 const mongoose = require('mongoose');
 const connection = mongoose.connection;
 
-const URI = process.env.MONGODB_URI 
-    ? process.env.MONGODB_URI 
-    : 'mongodb://localhost/dbtest';
 
-mongoose.connect(URI, {
-    useNewUrlParser: true,
-    useCreateIndex: true
-})
+dbConnection().catch(err => console.log(err));
 
-connection.once('open', () => {
+async function dbConnection() {
+  await mongoose.connect("mongodb://localhost:27017/test")
+}
+
+connection.once('connected', (stream) => {
     console.log('DB is connected')
 })
