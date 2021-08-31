@@ -4,7 +4,7 @@ const { getNotes, createNote, getNote, updateNote, deleteNote } = require ('../c
 
 router.route('/')
     .get(getNotes)
-    .get(createNote)
+    .post(createNote)
     
 
 router.route('/:id')
