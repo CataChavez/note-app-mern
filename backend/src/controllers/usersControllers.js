@@ -7,8 +7,8 @@ userCtrl.getUsers = async (req, res) => {
 };
 
 userCtrl.createUser = async (req, res) => {
-    const { userName } = req.body;
-    const newUser = new User({ userName });
+    const { userName, email } = req.body;
+    const newUser = new User({ userName, email });
     await newUser.save();
     res.json('User created');
 };
@@ -19,8 +19,8 @@ userCtrl.getUser = async (req, res) => {
 };
 
 userCtrl.updateUser = async (req, res) => {
-    const { userName } = req.body;
-    await User.findOneAndUpdate(req.params.id,{ userName });
+    const { userName, email } = req.body;
+    await User.findOneAndUpdate(req.params.id, { userName, email });
     res.json('User Update');
 };
 

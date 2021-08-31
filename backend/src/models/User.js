@@ -5,8 +5,13 @@ const userSchema = new Schema({
         type: String,
         required: true,
         trim: true,
-        unique: true,
     },
+    email: {
+        type: String,
+        required: true,
+        trim: true,
+        unique: true,
+    }
 }, {
     timestamps: true //crea un estampado de la fecha en la que se manipula o crea.
 })
